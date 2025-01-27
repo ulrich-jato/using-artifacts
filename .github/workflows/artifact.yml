@@ -49,14 +49,7 @@ jobs:
           name: linux
 
       - name: Test ${{ env.FILE_NAME }}
-        run: |
-          chmod +x ./${{ env.FILE_NAME }}
-          ./hello-server &  # Ensure it runs correctly
-          sleep 3
-          for i in Anakin Luke Leia Kylo Rey;
-          do
-              echo "$(date): $(curl -s http://localhost:11000/${i})"
-          done
+        run: source ./test.sh
 
   test-windows:
     name: Test Windows
