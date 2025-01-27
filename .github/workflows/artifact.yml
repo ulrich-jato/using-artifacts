@@ -39,9 +39,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: List files for linux
+      - name: List files in workspace
         run: |
-          ls -ltr ./linux
+          ls -ltr
 
       - name: Download artifact for linux
         uses: actions/download-artifact@v3
@@ -50,8 +50,8 @@ jobs:
 
       - name: Test ${{ env.FILE_NAME }}
         run: |
-          chmod +x ./linux/hello-server
-          ./linux/hello-server &  # Ensure it runs correctly
+          chmod +x ./${{ env.FILE_NAME }}
+          ./hello-server &  # Ensure it runs correctly
           sleep 3
           for i in Anakin Luke Leia Kylo Rey;
           do
@@ -66,9 +66,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: List files for windows
+      - name: List files in workspace
         run: |
-          dir windows
+          dir
 
       - name: Download artifact for windows
         uses: actions/download-artifact@v3
@@ -77,4 +77,4 @@ jobs:
 
       - name: Test ${{ env.FILE_NAME }}
         run: |
-          windows/${{ env.FILE_NAME }}.exe
+          ./${{ env.FILE_NAME }}.exe
