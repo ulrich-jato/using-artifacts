@@ -2,7 +2,7 @@ chmod +x ./linux/hello-server
 
 ./linux/hello-server &
 
-sleep 3
+sleep 3 
 
 for i in Anakin Luke Leia Kylo Rey;
 do
